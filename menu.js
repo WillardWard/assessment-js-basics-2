@@ -177,7 +177,7 @@ const filteredFood = foodArr.filter(food => {
     }
 });
 
-// console.log(filteredFood);
+console.log(filteredFood);
 
 
 
@@ -234,14 +234,6 @@ const filterByProperty = (property, number, type) => {
     return filteredArr;
 }
 
-const myFilter2 = (property) => {
-    let myArr = foodArr.filter(food => food[property] > 10);
-    return myArr;
-}
-// const myFilter = foodArr.filter(food => food['price'] < 10);
-
-// console.log(myFilter2('price'));
-// console.log(myFilter);
 
 /*
     Invoke the `filterByProperty` function passing
@@ -252,7 +244,7 @@ const myFilter2 = (property) => {
 
 //CODE HERE
 
-// console.log(filterByProperty('price', 10, 'above'));
+console.log(filterByProperty('price', 10, 'above'));
 console.log(filterByProperty('rating', 5, 'below'));
-// console.log(filterByProperty('rating', 3, 'equal'));
-// console.log(filterByProperty('rating', 5, 'below'));
+console.log(filterByProperty('rating', 3, 'equal'));
+console.log(filterByProperty('rating', 5, 'below'));
