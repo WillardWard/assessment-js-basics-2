@@ -35,7 +35,9 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((acc, curr) => acc += curr.price, 0);
+
+// console.log(summedPrice);
 
 
 //////////////////PROBLEM 2////////////////////
@@ -55,6 +57,11 @@ const cart = [
 
 //CODE HERE
 
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    return (cartTotal * (1 + tax)) - couponValue;
+}
+
+// console.log(calcFinalPrice(100, 20, .1));
 
 
 //////////////////PROBLEM 3////////////////////
@@ -78,7 +85,15 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    Customer name (string): identifies the customer, linking to the information in each object.
+
+    Total sales (number): shows how much the customer has purchased (this year, or in total).
+
+    Average spent per visit (number): calculates the average amount the customer spends each time.
+
+    Rewards member (boolean): if the customer is apart of the rewards/loyalty program to accrue points. either true or false.
+
+    Special discount (string): automatically applies the discount if the customer has the 'military' or 'senior' tag, as a string.
 
 */
 
@@ -88,3 +103,14 @@ const cart = [
 */
 
 //CODE HERE
+
+const customer = {
+    name : 'Bruce Bappo',
+    totalSales : 354.45,
+    avgSales : 26.55,
+    rewards : true,
+    discount : 'senior',
+}
+
+
+// console.log(customer);
