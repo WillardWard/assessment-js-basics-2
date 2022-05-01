@@ -32,6 +32,15 @@
 
 //CODE HERE
 
+const pizza = {
+    name : 'Supreme',
+    price : 16,
+    category : 'entree',
+    popularity : 8,
+    rating: 4,
+    tags: ['has meat', 'olives', 'onions'],
+}
+
 
 
 //////////////////PROBLEM 2////////////////////
@@ -44,6 +53,8 @@
 
 //CODE HERE
 
+console.log(pizza.popularity);
+
 
 /*
     Second, log the second tag in your pizza's
@@ -53,6 +64,8 @@
 */
 
 //CODE HERE
+
+console.log(pizza.tags[1]);
 
 
 /*
@@ -64,6 +77,9 @@
 
 //CODE HERE
 
+let {price} = pizza;
+console.log(`The price is $${price}`);
+
 
 /*
     Fourth, and last, destructure the category
@@ -73,6 +89,9 @@
 */
 
 //CODE HERE
+
+let {category} = pizza;
+console.log(`The category is ${category}`);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -88,6 +107,49 @@
 */
 
 //CODE HERE
+
+const foodArr = [
+    {
+        name : 'Stir Fry',
+        price : 15,
+        category : 'entree',
+        popularity : 5,
+        rating: 3,
+        tags: ['vegetarian option', 'rice', 'large portion'],
+    },
+    {
+        name : 'House salad',
+        price : 8,
+        category : 'salad',
+        popularity : 8,
+        rating: 2,
+        tags: ['vegetarian option', 'starter', 'small portion'],
+    },
+    {
+        name : 'Clam chowder',
+        price : 10,
+        category : 'soup',
+        popularity : 3,
+        rating: 5,
+        tags: ['has meat', 'hot', 'small portion'],
+    },
+    {
+        name : 'Burger',
+        price : 17,
+        category : 'entree',
+        popularity : 9,
+        rating: 5,
+        tags: ['has meat', 'sides option', 'large portion'],
+    },
+    {
+        name : 'Chocolate cake',
+        price : 7,
+        category : 'dessert',
+        popularity : 6,
+        rating: 2,
+        tags: ['vegetarian option', 'birthday', 'small portion'],
+    }
+]
 
 
 
@@ -105,7 +167,17 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+// console.log(foodArr[0].tags[0]);
+
+const filteredFood = foodArr.filter(food => {
+    for (i = 0; i < food.tags.length; i++){
+        if(food.tags[i] === 'has meat'){
+            return true;
+        }
+    }
+});
+
+// console.log(filteredFood);
 
 
 
@@ -141,7 +213,7 @@
         if it is, return objects whose value for the given
         property is greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
+        If the type is `below`, return objects whose
         value for the given property is less than the 
         `number` passed in
     
@@ -150,6 +222,26 @@
 
 //CODE HERE
 
+const filterByProperty = (property, number, type) => {
+    let filteredArr = [];
+    if(type === 'above'){
+        filteredArr = foodArr.filter(food => food[property] >= number);
+    }else if (type === 'below'){
+        filteredArr = foodArr.filter(food => food[property] < number);
+    }else{
+        filteredArr = foodArr.filter(food => food[property] === number);
+    }
+    return filteredArr;
+}
+
+const myFilter2 = (property) => {
+    let myArr = foodArr.filter(food => food[property] > 10);
+    return myArr;
+}
+// const myFilter = foodArr.filter(food => food['price'] < 10);
+
+// console.log(myFilter2('price'));
+// console.log(myFilter);
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +251,8 @@
 */
 
 //CODE HERE
+
+// console.log(filterByProperty('price', 10, 'above'));
+console.log(filterByProperty('rating', 5, 'below'));
+// console.log(filterByProperty('rating', 3, 'equal'));
+// console.log(filterByProperty('rating', 5, 'below'));
